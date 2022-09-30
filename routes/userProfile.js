@@ -25,7 +25,7 @@ module.exports = function getUserProfile () {
             req.app.locals.abused_ssti_bug = true
             const code = username.substring(2, username.length - 1)
             try {
-              username = "test" // eval(code) // eslint-disable-line no-eval
+              username = eval(code) // eslint-disable-line no-eval
             } catch (err) {
               username = '\\' + username
             }
